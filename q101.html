@@ -1,61 +1,139 @@
-<style>
-  .correct {
-    background-color: #d4efdf;
-    font-weight: bold;
-    color: #145a32;
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ชุดข้อสอบที่ 1: การบริหารวิชาการ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #fefefe;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #ecf0f1;
+      border-radius: 10px;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background: #1e8449;
+    }
+    #result {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>ชุดข้อสอบที่ 1: การบริหารวิชาการ</h1>
+  <form id="quizForm">
+    <div id="questions"></div>
+    <button type="submit">ส่งคำตอบ</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+  {
+    q: "ข้อ 1: จุดมุ่งหมายหลักของการบริหารวิชาการคืออะไร?",
+    options: [
+      "ก. ลดจำนวนครูในโรงเรียน",
+      "ข. เน้นการจัดซื้อครุภัณฑ์",
+      "ค. ส่งเสริมการเรียนรู้ของผู้เรียน",
+      "ง. เพิ่มรายได้ให้กับสถานศึกษา"
+    ],
+    answer: 2
+  },
+  {
+    q: "ข้อ 2: การจัดทำแผนพัฒนาหลักสูตรสถานศึกษาเป็นหน้าที่ของใคร?",
+    options: [
+      "ก. ผู้อำนวยการเขตพื้นที่",
+      "ข. คณะกรรมการสถานศึกษา",
+      "ค. คณะกรรมการบริหารหลักสูตรสถานศึกษา",
+      "ง. สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน"
+    ],
+    answer: 2
+  },
+  {
+    q: "ข้อ 3: ข้อใดไม่ใช่ภารกิจของฝ่ายวิชาการในโรงเรียน?",
+    options: [
+      "ก. การจัดกิจกรรมการเรียนการสอน",
+      "ข. การนิเทศภายในสถานศึกษา",
+      "ค. การจัดซื้อเครื่องปรับอากาศ",
+      "ง. การวัดและประเมินผลการเรียน"
+    ],
+    answer: 2
+  },
+  {
+    q: "ข้อ 4: การนิเทศภายในมีวัตถุประสงค์เพื่ออะไร?",
+    options: [
+      "ก. ควบคุมครูให้อยู่ในห้องเรียน",
+      "ข. ประเมินความสามารถของผู้บริหาร",
+      "ค. เสริมสร้างและพัฒนาการจัดการเรียนรู้",
+      "ง. ตรวจสอบการใช้สื่อประกอบการสอน"
+    ],
+    answer: 2
+  },
+  {
+    q: "ข้อ 5: การประเมินผลการเรียนรู้ควรสอดคล้องกับสิ่งใด?",
+    options: [
+      "ก. แนวทางของผู้บริหาร",
+      "ข. ความต้องการของผู้ปกครอง",
+      "ค. จุดประสงค์การเรียนรู้และหลักสูตร",
+      "ง. งบประมาณที่ได้รับ"
+    ],
+    answer: 2
   }
-</style>
+];
 
-<script>
-  const questions = [];
-  for (let i = 1; i <= 50; i++) {
-    questions.push({
-      q: `ข้อ ${i}: ข้อใดถูกต้องเกี่ยวกับการบริหารวิชาการ?`,
-      options: [
-        "ก. บริหารเพื่อสนองคุณภาพเพียงอย่างเดียว",
-        "ข. บริหารเน้นการจัดซื้ออุปกรณ์",
-        "ค. บริหารที่ส่งเสริมการเรียนรู้ผู้เรียน",
-        "ง. บริหารโดยไม่ต้องใช้ข้อมูลสารสนเทศ",
-      ],
-      answer: 2 // ข้อ ค
-    });
-  }
 
-  const container = document.getElementById("questions");
-  questions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.className = "question";
-    div.innerHTML = `<p>${q.q}</p>`;
-    const opts = q.options.map((opt, i) => `
-      <label data-index="${i}" data-question="${index}">
-        <input type="radio" name="q${index}" value="${i}"> ${opt}
-      </label>
-    `).join('');
-    div.innerHTML += `<div class="options">${opts}</div>`;
-    container.appendChild(div);
-  });
-
-  document.getElementById("quizForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    let score = 0;
+    const container = document.getElementById("questions");
     questions.forEach((q, index) => {
-      const selected = document.querySelector(`input[name=q${index}]:checked`);
-      const labels = document.querySelectorAll(`label[data-question="${index}"]`);
-      labels.forEach(label => {
-        label.classList.remove("correct"); // ล้างก่อน
-      });
-
-      if (selected && parseInt(selected.value) === q.answer) {
-        score++;
-      }
-
-      // ทำ highlight เฉลย
-      const correctLabel = document.querySelector(`label[data-question="${index}"][data-index="${q.answer}"]`);
-      if (correctLabel) {
-        correctLabel.classList.add("correct");
-      }
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<p>${q.q}</p>`;
+      const opts = q.options.map((opt, i) => `
+        <label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>
+      `).join('');
+      div.innerHTML += `<div class="options">${opts}</div>`;
+      container.appendChild(div);
     });
 
-    document.getElementById("result").innerText = `คุณได้คะแนน ${score} จาก 50 คะแนน (${(score*2).toFixed(0)}%)`;
-  });
-</script>
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name=q${index}]:checked`);
+        if (selected && parseInt(selected.value) === q.answer) {
+          score++;
+        }
+      });
+      document.getElementById("result").innerText = `คุณได้คะแนน ${score} จาก 50 คะแนน (${(score*2).toFixed(0)}%)`;
+    });
+  </script>
+</body>
+</html>
