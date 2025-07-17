@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="style1.css">
+  <title>ชุด#0</title>
+</head>
+<body>
+  <div class="container">
+    <h1>แนวข้อสอบ ชุดที่ 1</h1>
+    <form id="quiz-form" autocomplete="off">
+
+      <!-- Q1 -->
+      <div class="question-block" data-q="0">
+        <div class="question">1. บุคคลในข้อใดมีคุณสมบัติที่ไม่สามารถเข้ารับราชการเป็นข้าราชการครูได้</div>
+        <div class="choices">
+          <label><input type="radio" name="q0" value="นาย ก. เป็นบุคคลล้มละลาย"><span>ก. นาย ก. เป็นบุคคลล้มละลาย</span></label>
+          <label><input type="radio" name="q0" value="นาย ข. เป็นเจ้าหน้าที่ในพรรคการเมือง"><span>ข. นาย ข. เป็นเจ้าหน้าที่ในพรรคการเมือง</span></label>
+          <label><input type="radio" name="q0" value="นาย ค. เป็นกรรมการบริหารพรรคการเมือง"><span>ค. นาย ค. เป็นกรรมการบริหารพรรคการเมือง</span></label>
+          <label><input type="radio" name="q0" value="ทุกคนไม่สามารถเข้ารับราชการครูได้"><span>ง. ทุกคนไม่สามารถเข้ารับราชการครูได้</span></label>
+        </div>
+        <div class="explanation" style="display:none;"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-block" data-q="1">
+        <div class="question">2. วันลาหยุดงาน วันหยุดราชการตามประเพณี วันหยุดราชการประจำปีและการลาหยุดราชการของข้าราชการครูและบุคลากรทางการศึกษา ให้เป็นไปตามที่...</div>
+        <div class="choices">
+          <label><input type="radio" name="q1" value="ราชการกำหนด"><span>ก. ราชการกำหนด</span></label>
+          <label><input type="radio" name="q1" value="รัฐบาลกำหนด"><span>ข. รัฐบาลกำหนด</span></label>
+          <label><input type="radio" name="q1" value="ก.ค.ศ.กำหนด"><span>ค. ก.ค.ศ.กำหนด</span></label>
+          <label><input type="radio" name="q1" value="ค.ร.ม.กำหนด"><span>ง. ค.ร.ม.กำหนด</span></label>
+        </div>
+        <div class="explanation" style="display:none;"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-block" data-q="2">
+        <div class="question">3. ตำแหน่งศึกษานิเทศก์มีกี่ตำแหน่งฐานะ</div>
+        <div class="choices">
+          <label><input type="radio" name="q2" value="4"><span>ก. 4</span></label>
+          <label><input type="radio" name="q2" value="5"><span>ข. 5</span></label>
+          <label><input type="radio" name="q2" value="6"><span>ค. 6</span></label>
+          <label><input type="radio" name="q2" value="7"><span>ง. 7</span></label>
+        </div>
+        <div class="explanation" style="display:none;"></div>
+      </div>
+      
+      <button type="button" id="submit-btn">ส่งคำตอบ</button>
+      <button type="button" id="reset-btn">เริ่มใหม่</button>
+      <div id="score-section"></div>
+
+    </form>
+  </div>
+  
+  <!-- แก้ข้อมูลใน answers และ explanations ให้ตรงตามลำดับข้อ-->
+  <script>
+    const answers = [
+      'ทุกคนไม่สามารถเข้ารับราชการครูได้',
+      'ก.ค.ศ.กำหนด',
+      '4'
+    ];
+    const explanations = [
+      'เฉลย: <b>ทุกคนไม่สามารถเข้ารับราชการครูได้</b>',
+      'เฉลย: <b>ก.ค.ศ.กำหนด</b>',
+      'เฉลย: <b>4</b>'
+    ];
+
+    document.querySelectorAll('.choices').forEach((choiceBlock, idxQ) => {
+      choiceBlock.addEventListener('click', (e) => {
+        if (e.target.tagName === 'INPUT') {
+          const allLabels = choiceBlock.querySelectorAll('label');
+          const radios = choiceBlock.querySelectorAll('input[type="radio"]');
+          allLabels.forEach(lb=>{
+            lb.querySelector('span').className = '';
+          });
+          radios.forEach(radio=>{
+            if(radio.checked && radio.value === answers[idxQ]){
+              radio.parentNode.querySelector('span').classList.add('correct');
+            } else if(radio.checked && radio.value !== answers[idxQ]){
+              radio.parentNode.querySelector('span').classList.add('wrong');
+            }
+          });
+          // Show explanation
+          const explDiv = choiceBlock.parentNode.querySelector('.explanation');
+          explDiv.style.display = 'block';
+          explDiv.innerHTML = explanations[idxQ];
+        }
+      });
+    });
+
+    document.getElementById('submit-btn').onclick = () => {
+      let score = 0;
+      const questionBlocks = document.querySelectorAll('.question-block');
+      questionBlocks.forEach((block, qIdx) => {
+        const radios = block.querySelectorAll('input[type="radio"]');
+        let chosen = null;
+        radios.forEach(r=>{ if(r.checked) chosen = r.value; });
+        const allSpans = block.querySelectorAll('span');
+        allSpans.forEach(sp=>sp.className = '');
+        if (chosen) {
+          if(chosen === answers[qIdx]){
+            score++;
+            radios.forEach(r=>{
+              if(r.value === answers[qIdx]){
+                r.parentNode.querySelector('span').classList.add('correct');
+              }
+            });
+          } else {
+            radios.forEach(r=>{
+              if(r.value === answers[qIdx]){
+                r.parentNode.querySelector('span').classList.add('correct');
+              } else if(r.checked) {
+                r.parentNode.querySelector('span').classList.add('wrong');
+              }
+            });
+          }
+        }
+        // Always show explanation on submit
+        const explDiv = block.querySelector('.explanation');
+        explDiv.style.display = 'block';
+        explDiv.innerHTML = explanations[qIdx];
+      });
+      document.getElementById('score-section').textContent = `คะแนนที่ได้: ${score} / ${questionBlocks.length} ข้อ`;
+      window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+    };
+
+
+    document.getElementById('reset-btn').onclick = () => {
+      document.getElementById('quiz-form').reset();
+      document.querySelectorAll('.correct,.wrong').forEach(sp=>sp.className='');
+      document.querySelectorAll('.explanation').forEach(d=>{d.style.display = 'none';});
+      document.getElementById('score-section').textContent = '';
+    };
+  </script>
+</body>
+</html>
