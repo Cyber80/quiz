@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>แบบทดสอบธรรมาภิบาลและการบริหารบ้านเมืองที่ดี</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        .question { margin-bottom: 20px; }
+        .choices label { display: block; margin-left: 20px; }
+        .result { font-weight: bold; margin-top: 20px; }
+        .explanation { font-style: italic; }
+        button { margin-top: 20px; padding: 10px 20px; }
+    </style>
+    <script>
+        function showExplanation(qIndex, choiceIndex) {
+
+    if (qIndex === 0) {
+        var explanationEl = document.getElementById("explanation_0");
+        if (choiceIndex === 1) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: หลักธรรมาภิบาลเน้นโปร่งใส ตรวจสอบได้";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: หลักธรรมาภิบาลเน้นโปร่งใส ตรวจสอบได้";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 1) {
+        var explanationEl = document.getElementById("explanation_1");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: ไม่ใช่หลักของ พ.ร.บ. การบริหารกิจการบ้านเมืองที่ดี";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: ไม่ใช่หลักของ พ.ร.บ. การบริหารกิจการบ้านเมืองที่ดี";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 2) {
+        var explanationEl = document.getElementById("explanation_2");
+        if (choiceIndex === 0) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: หมายถึงสามารถเปิดเผยและตรวจสอบได้";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: หมายถึงสามารถเปิดเผยและตรวจสอบได้";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 3) {
+        var explanationEl = document.getElementById("explanation_3");
+        if (choiceIndex === 1) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: การเปิดโอกาสให้ประชาชนร่วมแสดงความคิดเห็น";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: การเปิดโอกาสให้ประชาชนร่วมแสดงความคิดเห็น";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 4) {
+        var explanationEl = document.getElementById("explanation_4");
+        if (choiceIndex === 0) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: มุ่งผลสัมฤทธิ์ตามเป้าหมาย";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: มุ่งผลสัมฤทธิ์ตามเป้าหมาย";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 5) {
+        var explanationEl = document.getElementById("explanation_5");
+        if (choiceIndex === 1) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: สะท้อนความโปร่งใสและรับผิดชอบ";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: สะท้อนความโปร่งใสและรับผิดชอบ";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 6) {
+        var explanationEl = document.getElementById("explanation_6");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: คือเป้าหมายของ พ.ร.บ. บ้านเมืองดี";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: คือเป้าหมายของ พ.ร.บ. บ้านเมืองดี";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 7) {
+        var explanationEl = document.getElementById("explanation_7");
+        if (choiceIndex === 1) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: ใช้ทรัพยากรอย่างมีประโยชน์สูงสุด";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: ใช้ทรัพยากรอย่างมีประโยชน์สูงสุด";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 8) {
+        var explanationEl = document.getElementById("explanation_8");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: คือเจตนารมณ์ของ พ.ร.บ. 2546";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: คือเจตนารมณ์ของ พ.ร.บ. 2546";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 9) {
+        var explanationEl = document.getElementById("explanation_9");
+        if (choiceIndex === 0) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: ใช้งบประมาณให้เกิดผลลัพธ์สูงสุด";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: ใช้งบประมาณให้เกิดผลลัพธ์สูงสุด";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 10) {
+        var explanationEl = document.getElementById("explanation_10");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: ไม่ใช่หลักธรรมาภิบาล";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: ไม่ใช่หลักธรรมาภิบาล";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 11) {
+        var explanationEl = document.getElementById("explanation_11");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: คือหลักโปร่งใส";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: คือหลักโปร่งใส";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 12) {
+        var explanationEl = document.getElementById("explanation_12");
+        if (choiceIndex === 1) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: หลักความเสมอภาค";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: หลักความเสมอภาค";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 13) {
+        var explanationEl = document.getElementById("explanation_13");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: ความคุ้มค่า";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: ความคุ้มค่า";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 14) {
+        var explanationEl = document.getElementById("explanation_14");
+        if (choiceIndex === 3) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: การเปิดช่องทางร้องเรียนคือการมีส่วนร่วมของประชาชน";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: การเปิดช่องทางร้องเรียนคือการมีส่วนร่วมของประชาชน";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 15) {
+        var explanationEl = document.getElementById("explanation_15");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: แนวทางตาม พ.ร.บ. 2546";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: แนวทางตาม พ.ร.บ. 2546";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 16) {
+        var explanationEl = document.getElementById("explanation_16");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: สะท้อนการบริหารที่ดี";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: สะท้อนการบริหารที่ดี";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 17) {
+        var explanationEl = document.getElementById("explanation_17");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: ส่งเสริมประชาธิปไตยในภาครัฐ";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: ส่งเสริมประชาธิปไตยในภาครัฐ";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 18) {
+        var explanationEl = document.getElementById("explanation_18");
+        if (choiceIndex === 1) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: หน่วยงานหลักผลักดันการบริหารบ้านเมืองที่ดี";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: หน่วยงานหลักผลักดันการบริหารบ้านเมืองที่ดี";
+        }
+        explanationEl.style.display = "block";
+    }
+    
+    if (qIndex === 19) {
+        var explanationEl = document.getElementById("explanation_19");
+        if (choiceIndex === 2) {
+            explanationEl.style.color = "green";
+            explanationEl.innerHTML = "✔️ ถูกต้อง: บทบาทสำคัญของธรรมาภิบาล";
+        } else {
+            explanationEl.style.color = "red";
+            explanationEl.innerHTML = "❌ ไม่ถูกต้อง: บทบาทสำคัญของธรรมาภิบาล";
+        }
+        explanationEl.style.display = "block";
+    }
+    }
+        function checkAnswers() {
+            var correct = 0;
+            var total = 20;
+            
+    if (document.getElementById("q0_1").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q1_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q2_0").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q3_1").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q4_0").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q5_1").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q6_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q7_1").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q8_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q9_0").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q10_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q11_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q12_1").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q13_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q14_3").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q15_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q16_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q17_2").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q18_1").checked) {
+        correct++;
+    }
+    
+    if (document.getElementById("q19_2").checked) {
+        correct++;
+    }
+    
+            document.getElementById('result').innerHTML = "คุณได้ " + correct + " คะแนน จากทั้งหมด " + total + " คะแนน";
+        }
+    </script>
+</head>
+<body>
+    <h2>แบบทดสอบ: หลักธรรมาภิบาลและการบริหารบ้านเมืองที่ดี</h2>
+    <form id="quiz">
+        <div class='question'><strong>1. ข้อใดต่อไปนี้เป็นหลักธรรมาภิบาลของข้าราชการที่ถูกต้องตามพระราชบัญญัติระเบียบข้าราชการพลเรือน พ.ศ. 2551</strong><div class='choices'><label><input type="radio" name="q0" id="q0_0" onclick="showExplanation(0, 0)"> ความประหยัด ความพอเพียง ความลับ</label><label><input type="radio" name="q0" id="q0_1" onclick="showExplanation(0, 1)"> ความโปร่งใส ความรับผิด ความยุติธรรม</label><label><input type="radio" name="q0" id="q0_2" onclick="showExplanation(0, 2)"> ความรวดเร็ว ความคล่องตัว ความก้าวหน้า</label><label><input type="radio" name="q0" id="q0_3" onclick="showExplanation(0, 3)"> ความมัธยัสถ์ ความเป็นส่วนตัว ความร่วมมือ</label><div id='explanation_0' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>2. หลักการบริหารบ้านเมืองที่ดี มุ่งเน้นให้หน่วยงานของรัฐบริหารงานด้วยคุณธรรม ข้อใดไม่ใช่หลักการตาม พ.ร.บ. การบริหารกิจการบ้านเมืองที่ดี พ.ศ. 2546</strong><div class='choices'><label><input type="radio" name="q1" id="q1_0" onclick="showExplanation(1, 0)"> ความรับผิดชอบ</label><label><input type="radio" name="q1" id="q1_1" onclick="showExplanation(1, 1)"> ความโปร่งใส</label><label><input type="radio" name="q1" id="q1_2" onclick="showExplanation(1, 2)"> ความเร็วในการอนุมัติ</label><label><input type="radio" name="q1" id="q1_3" onclick="showExplanation(1, 3)"> ความมีส่วนร่วม</label><div id='explanation_1' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>3. หลักธรรมาภิบาลข้อใดที่เน้นการปฏิบัติหน้าที่โดยสามารถตรวจสอบได้</strong><div class='choices'><label><input type="radio" name="q2" id="q2_0" onclick="showExplanation(2, 0)"> ความโปร่งใส</label><label><input type="radio" name="q2" id="q2_1" onclick="showExplanation(2, 1)"> ความเสมอภาค</label><label><input type="radio" name="q2" id="q2_2" onclick="showExplanation(2, 2)"> ความคุ้มค่า</label><label><input type="radio" name="q2" id="q2_3" onclick="showExplanation(2, 3)"> ความอ่อนน้อม</label><div id='explanation_2' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>4. การให้ประชาชนเข้ามามีส่วนร่วมในการแสดงความคิดเห็นต่อการบริหารราชการเป็นการยึดหลักใด</strong><div class='choices'><label><input type="radio" name="q3" id="q3_0" onclick="showExplanation(3, 0)"> หลักความโปร่งใส</label><label><input type="radio" name="q3" id="q3_1" onclick="showExplanation(3, 1)"> หลักความมีส่วนร่วม</label><label><input type="radio" name="q3" id="q3_2" onclick="showExplanation(3, 2)"> หลักความรับผิดชอบ</label><label><input type="radio" name="q3" id="q3_3" onclick="showExplanation(3, 3)"> หลักความคุ้มค่า</label><div id='explanation_3' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>5. การที่ข้าราชการปฏิบัติงานโดยมุ่งผลสัมฤทธิ์ของงานตามเป้าหมายเป็นการยึดหลักใด</strong><div class='choices'><label><input type="radio" name="q4" id="q4_0" onclick="showExplanation(4, 0)"> หลักประสิทธิภาพ</label><label><input type="radio" name="q4" id="q4_1" onclick="showExplanation(4, 1)"> หลักความเสมอภาค</label><label><input type="radio" name="q4" id="q4_2" onclick="showExplanation(4, 2)"> หลักความรับผิด</label><label><input type="radio" name="q4" id="q4_3" onclick="showExplanation(4, 3)"> หลักธรรมาภิบาล</label><div id='explanation_4' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>6. 'ความรับผิด' ในหลักธรรมาภิบาลหมายถึงข้อใด</strong><div class='choices'><label><input type="radio" name="q5" id="q5_0" onclick="showExplanation(5, 0)"> ต้องไม่เปิดเผยข้อมูล</label><label><input type="radio" name="q5" id="q5_1" onclick="showExplanation(5, 1)"> ต้องรับผิดชอบต่อผลของการกระทำ</label><label><input type="radio" name="q5" id="q5_2" onclick="showExplanation(5, 2)"> ต้องทำงานภายใต้คำสั่ง</label><label><input type="radio" name="q5" id="q5_3" onclick="showExplanation(5, 3)"> ต้องรายงานผลการปฏิบัติงานทุกวัน</label><div id='explanation_5' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>7. ข้อใดคือเป้าหมายของหลักการบริหารบ้านเมืองที่ดี</strong><div class='choices'><label><input type="radio" name="q6" id="q6_0" onclick="showExplanation(6, 0)"> ให้ประชาชนกลัวกฎหมาย</label><label><input type="radio" name="q6" id="q6_1" onclick="showExplanation(6, 1)"> ให้เจ้าหน้าที่รัฐได้รับเงินเดือนสูง</label><label><input type="radio" name="q6" id="q6_2" onclick="showExplanation(6, 2)"> ให้การบริหารภาครัฐมีประสิทธิภาพ โปร่งใส และตรวจสอบได้</label><label><input type="radio" name="q6" id="q6_3" onclick="showExplanation(6, 3)"> ให้รัฐควบคุมประชาชนได้เต็มที่</label><div id='explanation_6' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>8. หลักธรรมาภิบาลข้อใดที่เน้นการใช้ทรัพยากรอย่างมีประสิทธิภาพ</strong><div class='choices'><label><input type="radio" name="q7" id="q7_0" onclick="showExplanation(7, 0)"> ความโปร่งใส</label><label><input type="radio" name="q7" id="q7_1" onclick="showExplanation(7, 1)"> ความคุ้มค่า</label><label><input type="radio" name="q7" id="q7_2" onclick="showExplanation(7, 2)"> ความเสมอภาค</label><label><input type="radio" name="q7" id="q7_3" onclick="showExplanation(7, 3)"> ความรับผิด</label><div id='explanation_7' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>9. พ.ร.บ.การบริหารกิจการบ้านเมืองที่ดี พ.ศ. 2546 มีวัตถุประสงค์หลักคืออะไร</strong><div class='choices'><label><input type="radio" name="q8" id="q8_0" onclick="showExplanation(8, 0)"> ลดจำนวนข้าราชการ</label><label><input type="radio" name="q8" id="q8_1" onclick="showExplanation(8, 1)"> เพิ่มภาษี</label><label><input type="radio" name="q8" id="q8_2" onclick="showExplanation(8, 2)"> ส่งเสริมให้ราชการมีคุณภาพ มีธรรมาภิบาล และมุ่งผลสัมฤทธิ์</label><label><input type="radio" name="q8" id="q8_3" onclick="showExplanation(8, 3)"> ยุบหน่วยงานรัฐ</label><div id='explanation_8' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>10. การจัดสรรงบประมาณอย่างรอบคอบและมีเป้าหมายสะท้อนถึงหลักธรรมาภิบาลข้อใด</strong><div class='choices'><label><input type="radio" name="q9" id="q9_0" onclick="showExplanation(9, 0)"> หลักความคุ้มค่า</label><label><input type="radio" name="q9" id="q9_1" onclick="showExplanation(9, 1)"> หลักความโปร่งใส</label><label><input type="radio" name="q9" id="q9_2" onclick="showExplanation(9, 2)"> หลักความเสมอภาค</label><label><input type="radio" name="q9" id="q9_3" onclick="showExplanation(9, 3)"> หลักความมีส่วนร่วม</label><div id='explanation_9' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>11. ข้อใดไม่ใช่หลักธรรมาภิบาลตามระเบียบของทางราชการ</strong><div class='choices'><label><input type="radio" name="q10" id="q10_0" onclick="showExplanation(10, 0)"> หลักความโปร่งใส</label><label><input type="radio" name="q10" id="q10_1" onclick="showExplanation(10, 1)"> หลักความเสมอภาค</label><label><input type="radio" name="q10" id="q10_2" onclick="showExplanation(10, 2)"> หลักความลับ</label><label><input type="radio" name="q10" id="q10_3" onclick="showExplanation(10, 3)"> หลักความรับผิด</label><div id='explanation_10' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>12. หน่วยงานของรัฐต้องดำเนินการตามหลักการใดเพื่อให้เกิดความโปร่งใสในการทำงาน</strong><div class='choices'><label><input type="radio" name="q11" id="q11_0" onclick="showExplanation(11, 0)"> ไม่เปิดเผยข้อมูลแก่ประชาชน</label><label><input type="radio" name="q11" id="q11_1" onclick="showExplanation(11, 1)"> หลีกเลี่ยงการตรวจสอบ</label><label><input type="radio" name="q11" id="q11_2" onclick="showExplanation(11, 2)"> เผยแพร่ข้อมูลที่จำเป็นและถูกต้อง</label><label><input type="radio" name="q11" id="q11_3" onclick="showExplanation(11, 3)"> เก็บข้อมูลไว้ภายใน</label><div id='explanation_11' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>13. ข้อใดต่อไปนี้สะท้อนหลักความเสมอภาคในการให้บริการของรัฐ</strong><div class='choices'><label><input type="radio" name="q12" id="q12_0" onclick="showExplanation(12, 0)"> บริการเฉพาะญาติข้าราชการ</label><label><input type="radio" name="q12" id="q12_1" onclick="showExplanation(12, 1)"> ให้บริการทุกคนโดยไม่เลือกปฏิบัติ</label><label><input type="radio" name="q12" id="q12_2" onclick="showExplanation(12, 2)"> คิดค่าบริการแตกต่างตามยศ</label><label><input type="radio" name="q12" id="q12_3" onclick="showExplanation(12, 3)"> บริการเฉพาะผู้ที่มีบัตรสมาชิก</label><div id='explanation_12' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>14. หลักความคุ้มค่าในการบริหารบ้านเมือง หมายถึงอะไร</strong><div class='choices'><label><input type="radio" name="q13" id="q13_0" onclick="showExplanation(13, 0)"> ใช้จ่ายตามใจชอบ</label><label><input type="radio" name="q13" id="q13_1" onclick="showExplanation(13, 1)"> เน้นประหยัดโดยไม่คำนึงถึงคุณภาพ</label><label><input type="radio" name="q13" id="q13_2" onclick="showExplanation(13, 2)"> ใช้ทรัพยากรให้เกิดประโยชน์สูงสุด</label><label><input type="radio" name="q13" id="q13_3" onclick="showExplanation(13, 3)"> ลดจำนวนบุคลากร</label><div id='explanation_13' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>15. การมีช่องทางร้องเรียนหรือแจ้งเบาะแสสะท้อนหลักธรรมาภิบาลข้อใด</strong><div class='choices'><label><input type="radio" name="q14" id="q14_0" onclick="showExplanation(14, 0)"> หลักความเสมอภาค</label><label><input type="radio" name="q14" id="q14_1" onclick="showExplanation(14, 1)"> หลักความรับผิด</label><label><input type="radio" name="q14" id="q14_2" onclick="showExplanation(14, 2)"> หลักความโปร่งใส</label><label><input type="radio" name="q14" id="q14_3" onclick="showExplanation(14, 3)"> หลักความมีส่วนร่วม</label><div id='explanation_14' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>16. ข้อใดต่อไปนี้ตรงกับแนวคิดหลักของ พ.ร.บ. การบริหารกิจการบ้านเมืองที่ดี</strong><div class='choices'><label><input type="radio" name="q15" id="q15_0" onclick="showExplanation(15, 0)"> ควบคุมทุกอย่างจากส่วนกลาง</label><label><input type="radio" name="q15" id="q15_1" onclick="showExplanation(15, 1)"> บริหารแบบรวมศูนย์เด็ดขาด</label><label><input type="radio" name="q15" id="q15_2" onclick="showExplanation(15, 2)"> เน้นผลสัมฤทธิ์และการมีส่วนร่วมของประชาชน</label><label><input type="radio" name="q15" id="q15_3" onclick="showExplanation(15, 3)"> ให้ข้าราชการมีอำนาจสูงสุด</label><div id='explanation_15' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>17. ข้อใดคือลักษณะของการบริหารบ้านเมืองที่ดี</strong><div class='choices'><label><input type="radio" name="q16" id="q16_0" onclick="showExplanation(16, 0)"> ไม่เปิดเผยข้อมูล</label><label><input type="radio" name="q16" id="q16_1" onclick="showExplanation(16, 1)"> ไม่รับฟังความคิดเห็น</label><label><input type="radio" name="q16" id="q16_2" onclick="showExplanation(16, 2)"> วางแผนอย่างรอบคอบและเปิดเผยข้อมูล</label><label><input type="radio" name="q16" id="q16_3" onclick="showExplanation(16, 3)"> ปิดกั้นการตรวจสอบ</label><div id='explanation_16' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>18. การรับฟังความคิดเห็นจากประชาชนควรทำอย่างไร</strong><div class='choices'><label><input type="radio" name="q17" id="q17_0" onclick="showExplanation(17, 0)"> ทำเฉพาะเรื่องที่รัฐต้องการ</label><label><input type="radio" name="q17" id="q17_1" onclick="showExplanation(17, 1)"> เลือกกลุ่มเฉพาะ</label><label><input type="radio" name="q17" id="q17_2" onclick="showExplanation(17, 2)"> ทำอย่างสม่ำเสมอและเปิดกว้าง</label><label><input type="radio" name="q17" id="q17_3" onclick="showExplanation(17, 3)"> ไม่จำเป็นต้องทำ</label><div id='explanation_17' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>19. หน่วยงานใดเป็นผู้รับผิดชอบหลักในการผลักดันหลักการบริหารบ้านเมืองที่ดี</strong><div class='choices'><label><input type="radio" name="q18" id="q18_0" onclick="showExplanation(18, 0)"> กระทรวงพาณิชย์</label><label><input type="radio" name="q18" id="q18_1" onclick="showExplanation(18, 1)"> สำนักงานคณะกรรมการพัฒนาระบบราชการ</label><label><input type="radio" name="q18" id="q18_2" onclick="showExplanation(18, 2)"> รัฐสภา</label><label><input type="radio" name="q18" id="q18_3" onclick="showExplanation(18, 3)"> กระทรวงมหาดไทย</label><div id='explanation_18' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div><div class='question'><strong>20. หลักธรรมาภิบาลมีบทบาทอย่างไรต่อคุณภาพการบริหารราชการ</strong><div class='choices'><label><input type="radio" name="q19" id="q19_0" onclick="showExplanation(19, 0)"> ลดการตรวจสอบ</label><label><input type="radio" name="q19" id="q19_1" onclick="showExplanation(19, 1)"> เพิ่มภาระราชการ</label><label><input type="radio" name="q19" id="q19_2" onclick="showExplanation(19, 2)"> ส่งเสริมให้การทำงานมีประสิทธิภาพและตรวจสอบได้</label><label><input type="radio" name="q19" id="q19_3" onclick="showExplanation(19, 3)"> ทำให้ล่าช้า</label><div id='explanation_19' class='explanation' style='display:none; margin-left:20px; color:green;'></div></div></div>
+    </form>
+    <button onclick="checkAnswers()">ส่งคำตอบ</button>
+    <button type="button" id="reset-btn">เริ่มใหม่</button>
+    <div id="result" class="result"></div>
+</body>
+</html>
